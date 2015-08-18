@@ -1,2 +1,4 @@
-# djinn_likes
-Likes module for Djinn Intranet
+djinn_likes
+===================
+
+Djinn module for adding likes to various content_types
