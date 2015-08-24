@@ -1,5 +1,13 @@
-<br />
-object: {{ content_obj }}<br />
-likes enabled: {{ likes_enabled }}<br />
-content_type: {{ content_type }}<br />
-count: {{ content_obj.likes_count }}<br />
+{% load djinn_likes %}
+{% comment %}
+    // for debugging
+    <br />
+    object: {{ object }}<br />
+    likes enabled: {{ likes_enabled }}<br />
+    content_type: {{ content_type }}<br />
+    count: {{ content_obj.likes_count }}<br />
+    <br />
+{% endcomment %}
+<div class="update-like-info">
+    {% show_likers object %}
+</div>

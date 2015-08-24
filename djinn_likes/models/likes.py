@@ -8,6 +8,10 @@ from django.contrib.auth.models import User
 
 class Like(models.Model):
 
+    """
+    A user can like a content item once.
+    """
+
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey('content_type',

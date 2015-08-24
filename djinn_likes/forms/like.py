@@ -1,10 +1,9 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from djinn_contenttypes.forms.base import BaseForm
 from djinn_likes.models.likes import Like
 
 
-class LikeForm(BaseForm):
+class LikeForm(forms.Form):
 
     @property
     def labels(self):
@@ -13,6 +12,6 @@ class LikeForm(BaseForm):
                 'cancel': _('Cancel'),
                 'header': _('Add like')}
 
-    class Meta(BaseForm.Meta):
+    class Meta:
         model = Like
         fields = ('content_type', 'object_id', 'user')

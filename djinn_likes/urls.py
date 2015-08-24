@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, url, include
 from djinn_contenttypes.views.utils import generate_model_urls
 #from models import
+from views.like import ToggleLikeView
 
 
 _urlpatterns = patterns(
@@ -15,16 +16,16 @@ _urlpatterns = patterns(
     #     PriorityAnnouncementViewlet.as_view(),
     #     name="djinn_priority_announcements"),
     #
-    # url(r"^service$",
-    #     ServiceAnnouncementViewlet.as_view(),
-    #     name="djinn_service_announcements"),
-    #
+    url(r"^toggle",
+        ToggleLikeView.as_view(),
+        name="djinn_toggle_like"),
+
     )
 
 urlpatterns = patterns(
     '',
 
-    (r'^announcements/', include(_urlpatterns)),
+    (r'^djinn_likes/', include(_urlpatterns)),
     # (r'^announcements/', include(generate_model_urls(Announcement))),
     # (r'^announcements/', include(generate_model_urls(ServiceAnnouncement))),
     # (r'^announcements/', include(generate_model_urls(AnnouncementUpdate))),

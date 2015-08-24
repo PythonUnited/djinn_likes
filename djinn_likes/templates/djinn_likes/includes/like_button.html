@@ -1,0 +1,15 @@
+{% load djinn_core %}
+<a class="action-inline"
+   target="#update-like-action"
+   data-pu_actionmethod="POST"
+   href="{% url 'djinn_toggle_like' %}"
+   data-pu_actiondata="uri={% object_to_urn object %}"
+   data-pu_targetbehavior="replace"
+   data-pu_datatype="html" title="{% if is_liked_by_user %}Vind ik niet meer leuk{% else %}Vind ik leuk{% endif %}"
+   id="update-like-action">
+    {% if is_liked_by_user %}
+    Vind ik niet meer leuk
+    {% else %}
+    Vind ik leuk
+    {% endif %}
+</a>

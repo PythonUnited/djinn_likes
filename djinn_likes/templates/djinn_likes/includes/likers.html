@@ -1,0 +1,21 @@
+{% if likers_count %}
+<span id="dia-update-like-counter" class="update-like-counter">
+{% if likers_count > 3 %}
+    {{ likers_count }} collega{{ likers_count|pluralize:"'s" }}
+{% else %}
+  {% for liker in likers_list %}{% if likers_count > 1 and not forloop.first %}{% if forloop.last %} en {% else %}, {% endif %}{% endif %}<a title="" data-original-title="" class="userprofile" data-load="/profiel/{{ liker.1.id }}/summary" href="/profiel/{{ liker.1.name }}">{{ liker.0 }}</a>{% endfor %}
+{% endif %}
+ vind{{ likers_count|pluralize:"t,en" }} dit leuk
+</span>
+
+{% if likers_count > 3 %}
+    <div id="dia-update-like-overview" class="update-like-overview">
+        {% spaceless %}
+        <span class="update-like-overview-arrow"></span>{% for liker in likers_long %}{% if likers_count > 1 and not forloop.first %}, {% endif %}{{ liker.0 }}{% endfor %}{% if extra_likers %}<span id="dia-update-like-rest" class="update-like-rest">+ {{ extra_likers }} anderen</span>{% endif %}
+        {% endspaceless %}
+    </div>
+{% endif %}
+{% endif %}
+
+
+
