@@ -6,8 +6,10 @@ def get_urls():
 
 def get_js():
 
-    return ["djinn_likes.js"]
+    # return ["djinn_likes.js"]
+    return []
 
 def get_css():
 
-    return ["djinn_likes.css"]
+    # return ["djinn_likes.css"]
+    return []

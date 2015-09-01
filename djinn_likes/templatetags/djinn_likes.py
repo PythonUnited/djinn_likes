@@ -41,7 +41,7 @@ def show_likers(context, obj):
     likers_list = []
     user_likes_this = False
 
-    if context['request'].user in likers:
+    if likers.filter(id=context['request'].user.id):
         likers_list.append(("Jij", context['request'].user.get_profile()))
         user_likes_this = True
 
