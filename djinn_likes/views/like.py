@@ -1,11 +1,10 @@
-from django.core.urlresolvers import reverse
-from django.views.generic import FormView
 from djinn_likes.models import Like
 from djinn_likes.forms.like import LikeForm
 from djinn_core.utils import urn_to_ctype_and_id, urn_to_object
+from pgintranet.apps.pu_in_content.views.jsonbase import JSONFormView
 
 
-class ToggleLikeView(FormView):
+class ToggleLikeView(JSONFormView):
 
     model = Like
     form_class = LikeForm
