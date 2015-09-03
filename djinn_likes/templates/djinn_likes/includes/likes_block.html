@@ -4,10 +4,10 @@
     <br />
     object: {{ object }}<br />
     likes enabled: {{ likes_enabled }}<br />
-    content_type: {{ content_type }}<br />
+    content_type: {{ likes_content_type }}<br />
     count: {{ content_obj.likes_count }}<br />
     <br />
 {% endcomment %}
-<div class="update-like-info">
+<div class="update-like-info" id="like-counter-{{ object.ct_name }}-{{ object.id }}">
     {% show_likers object %}
 </div>

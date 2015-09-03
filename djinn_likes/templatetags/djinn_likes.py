@@ -30,7 +30,7 @@ def likes(context, obj, template=None):
         'template': template,
         'object': obj,
         'likes_enabled': likes_enabled(obj, request),
-        'content_type': "-".join((obj._meta.app_label, obj._meta.module_name)),
+        'likes_content_type': "-".join((obj._meta.app_label, obj._meta.module_name)),
     })
     return context
 
@@ -52,7 +52,8 @@ def show_likers(context, obj):
 
     num_names_longlist = 4
 
-    return {"likers_list": likers_list,
+    return {"liked_object": obj,
+            "likers_list": likers_list,
             "likers_count": len(likers_list),
             "user_likes_this": user_likes_this,
             "likers_long": likers_list[:num_names_longlist],

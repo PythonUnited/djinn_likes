@@ -8,7 +8,7 @@ djinn_likes['likes'] = {};
 
 djinn_likes.likes.handle_like_action = function(tgt){
     // there is no auto-update for this field right now, so remove it...
-    $('.update-like-info').remove();
+    $("#" + tgt.data('pu_clear_id')).remove();
 };
 
 /**
@@ -16,7 +16,7 @@ djinn_likes.likes.handle_like_action = function(tgt){
  */
 djinn_likes.likes.bind_events = function() {
 
-  $("body").on("click", "#update-like-action", function(e) {
+  $("body").on("click", ".update-like-action", function(e) {
       return djinn_likes.likes.handle_like_action($(e.target));
     });
 

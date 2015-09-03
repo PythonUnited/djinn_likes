@@ -1,12 +1,13 @@
 {% load djinn_core %}
-<a class="action-inline"
-   target="#update-like-action"
+<a class="action-inline update-like-action"
+   target="#update-like-action-{{ object.ct_name }}-{{ object.id}}"
    data-pu_actionmethod="POST"
    href="{% url 'djinn_toggle_like' %}"
    data-pu_actiondata="uri={% object_to_urn object %}"
    data-pu_targetbehavior="replace"
    data-pu_datatype="json" title="{% if is_liked_by_user %}Vind ik niet meer leuk{% else %}Vind ik leuk{% endif %}"
-   id="update-like-action">
+   data-pu_clear_id="like-counter-{{ object.ct_name }}-{{ object.id }}"
+   id="update-like-action-{{ object.ct_name }}-{{ object.id}}">
     {% if is_liked_by_user %}
     Vind ik niet meer leuk
     {% else %}
