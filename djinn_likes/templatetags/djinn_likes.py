@@ -28,7 +28,7 @@ def likes(context, obj, template=None):
 
     context.update({
         'template': template,
-        'object': obj,
+        'liked_object': obj,
         'likes_enabled': likes_enabled(obj, request),
         'likes_content_type': "-".join((obj._meta.app_label, obj._meta.module_name)),
     })
