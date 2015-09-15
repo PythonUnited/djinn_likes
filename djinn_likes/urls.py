@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url, include
 from djinn_contenttypes.views.utils import generate_model_urls
 #from models import
-from views.like import ToggleLikeView
+from views.like import ToggleLikeView, LikersForObject
 
 
 _urlpatterns = patterns(
@@ -19,6 +19,11 @@ _urlpatterns = patterns(
     url(r"^toggle",
         ToggleLikeView.as_view(),
         name="djinn_toggle_like"),
+
+    url(r"^likes",
+        LikersForObject.as_view(),
+        name="djinn_likes_for_object"),
+
 
     )
 

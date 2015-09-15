@@ -7,23 +7,14 @@ if (djinn_likes == undefined) {
 djinn_likes['likes'] = {};
 
 djinn_likes.likes.handle_like_action = function(tgt){
-    // there is no auto-update for this field right now, so remove it...
-    $("#" + tgt.data('pu_clear_id')).remove();
-};
+    // this will be called as callback from the 'like' button
 
-/**
- * Bind events for likes. Do this as 'delegate' events on the document.
- */
-djinn_likes.likes.bind_events = function() {
+    $.get('/djinn_likes/likes?' + tgt.data('pu_actiondata'), function(data, status, xhr) {
 
-  $("body").on("click", ".update-like-action", function(e) {
-      return djinn_likes.likes.handle_like_action($(e.target));
-    });
-
-};
-
-$(document).ready(function() {
-    
-    djinn_likes.likes.bind_events();
-
+    if (xhr.status == 202) {
+      // nasty
+    } else {
+      $("#" + tgt.data('pu_clear_id')).replaceWith(data);
+    }
   });
+};

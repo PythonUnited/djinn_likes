@@ -1,3 +1,4 @@
+from django.views.generic import TemplateView
 from djinn_likes.models import Like
 from djinn_likes.forms.like import LikeForm
 from djinn_core.utils import urn_to_ctype_and_id, urn_to_object
@@ -52,3 +53,18 @@ class ToggleLikeView(JSONFormView):
         response = super(ToggleLikeView, self).post(request, args, kwargs)
 
         return response
+
+
+class LikersForObject(TemplateView):
+    '''
+    This view is called ajaxy by a callback from the 'like' button
+    '''
+
+    template_name = 'djinn_likes/likes.html'
+
+    def get_context_data(self, **kwargs):
+
+        ctx = super(LikersForObject, self).get_context_data(**kwargs)
+        ctx['object'] =  urn_to_object(self.request.REQUEST['uri'])
+
+        return ctx
