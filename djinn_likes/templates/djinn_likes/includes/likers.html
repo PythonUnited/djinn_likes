@@ -11,7 +11,7 @@
 {% if likers_count > 3 %}
     <div id="dia-update-like-overview" class="update-like-overview">
         {% spaceless %}
-        <span class="update-like-overview-arrow"></span>{% for liker in likers_long %}{% if likers_count > 1 and not forloop.first %}, {% endif %}{{ liker.0 }}{% endfor %}{% if extra_likers %}<span id="dia-update-like-rest" class="update-like-rest">+ {{ extra_likers }} anderen</span>{% endif %}
+        <span class="update-like-overview-arrow"></span>{% for liker in likers_long %}{% if likers_count > 1 and not forloop.first %}, {% endif %}{{ liker.0 }}{% endfor %}{% if extra_likers %}<span id="dia-update-like-rest" class="update-like-rest"> + {{ extra_likers }} anderen</span>{% endif %}
         {% endspaceless %}
     </div>
 {% endif %}
