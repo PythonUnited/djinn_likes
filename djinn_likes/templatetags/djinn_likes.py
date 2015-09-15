@@ -50,7 +50,7 @@ def show_likers(context, obj):
             prfile = liker.get_profile()
             likers_list.append((unicode(prfile), prfile))
 
-    num_names_longlist = 4
+    num_names_longlist = 20
 
     return {"liked_object": obj,
             "likers_list": likers_list,
