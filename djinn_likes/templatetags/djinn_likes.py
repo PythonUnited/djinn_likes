@@ -15,9 +15,12 @@ def likes_enabled(obj, request=None):
 
 @register.inclusion_tag('djinn_likes/includes/like_button.html', takes_context=True)
 def like_button(context, obj):
+    if not likes_enabled(obj):
+        return {"likes_enabled": False}
 
     return {"is_liked_by_user": obj.is_liked_by(context['request'].user),
-            "object": obj}
+            "object": obj,
+            "likes_enabled": True}
 
 @register.inclusion_tag('djinn_likes/includes/likes_block.html', takes_context=True)
 def likes(context, obj, template=None):
