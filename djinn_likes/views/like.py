@@ -31,6 +31,7 @@ class ToggleLikeView(JSONFormView):
         context['edit_mode'] = True
 
         context.update({'object': self.object,
+                        'likes_enabled': True,
                         'is_liked_by_user': self.object.is_liked_by(
                             self.request.user)
         })
