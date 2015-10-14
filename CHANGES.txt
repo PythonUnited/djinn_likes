@@ -1,3 +1,7 @@
+1.0.4
+=====
+* fixed a bug which made the like or don't like anymore button disappear completely after clicking it
+
 1.0.3
 =====
 * fix for contenttypes that do not support likes
