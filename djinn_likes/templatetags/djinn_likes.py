@@ -33,7 +33,7 @@ def likes(context, obj, template=None):
         'template': template,
         'liked_object': obj,
         'likes_enabled': likes_enabled(obj, request),
-        'likes_content_type': "-".join((obj._meta.app_label, obj._meta.module_name)),
+        'likes_content_type': "-".join((obj._meta.app_label, obj._meta.model_name)),
     })
     return context
 

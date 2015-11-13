@@ -1,1 +1,1 @@
-from likes import Like
+from djinn_likes.models.likes import Like
