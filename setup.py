@@ -13,7 +13,7 @@ requires = [
     ]
 
 setup(name='djinn_likes',
-      version="1.0.5",
+      version="1.0.6",
       description='Djinn Intranet Likes',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
