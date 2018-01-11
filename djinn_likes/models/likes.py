@@ -1,4 +1,4 @@
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -12,16 +12,18 @@ class Like(models.Model):
     A user can like a content item once.
     """
 
-    content_type = models.ForeignKey(ContentType)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
-    content_object = generic.GenericForeignKey('content_type',
+    content_object = GenericForeignKey('content_type',
                                                    'object_id')
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __unicode__(self):
 
         return u"%d" % self.id
+
+    __str__ = __unicode__
 
     class Meta:
         app_label = 'djinn_likes'

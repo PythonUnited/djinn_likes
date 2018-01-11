@@ -66,6 +66,9 @@ class LikersForObject(TemplateView):
     def get_context_data(self, **kwargs):
 
         ctx = super(LikersForObject, self).get_context_data(**kwargs)
-        ctx['object'] =  urn_to_object(self.request.REQUEST['uri'])
+        try:
+            ctx['object'] =  urn_to_object(self.request.GET['uri'])
+        except:
+            ctx['object'] = urn_to_object(self.request.POST['uri'])
 
         return ctx

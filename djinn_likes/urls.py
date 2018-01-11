@@ -1,11 +1,11 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls import url
+from django.urls import include
 from djinn_contenttypes.views.utils import generate_model_urls
 #from models import
-from views.like import ToggleLikeView, LikersForObject
+from .views.like import ToggleLikeView, LikersForObject
 
 
-_urlpatterns = patterns(
-    "",
+_urlpatterns = [
 
     # # Viewlet
     # url(r"^$",
@@ -25,13 +25,12 @@ _urlpatterns = patterns(
         name="djinn_likes_for_object"),
 
 
-    )
+]
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
 
-    (r'^djinn_likes/', include(_urlpatterns)),
+    url(r'^djinn_likes/', include(_urlpatterns)),
     # (r'^announcements/', include(generate_model_urls(Announcement))),
     # (r'^announcements/', include(generate_model_urls(ServiceAnnouncement))),
     # (r'^announcements/', include(generate_model_urls(AnnouncementUpdate))),
-)
+]

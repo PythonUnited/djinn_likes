@@ -51,7 +51,7 @@ def show_likers(context, obj):
     for liker in likers:
         if liker != context['request'].user:
             prfile = liker.get_profile()
-            likers_list.append((unicode(prfile), prfile))
+            likers_list.append((str(prfile), prfile))
 
     num_names_longlist = 20
 
