@@ -4,9 +4,10 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from djinn_contenttypes.registry import CTRegistry
 from django.contrib.auth.models import User
+from djinn_contenttypes.models.swappablemodel_mixin import SwappableModelMixin
 
 
-class Like(models.Model):
+class Like(models.Model, SwappableModelMixin):
 
     """
     A user can like a content item once.
