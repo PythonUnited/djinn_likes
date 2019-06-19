@@ -1,3 +1,5 @@
+* added raw_id_fields in admin for performance
+
 1.0.6
 =====
 * admin search
