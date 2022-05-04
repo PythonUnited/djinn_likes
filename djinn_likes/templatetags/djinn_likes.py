@@ -14,12 +14,13 @@ def likes_enabled(obj, request=None):
     return True
 
 @register.inclusion_tag('djinn_likes/includes/like_button.html', takes_context=True)
-def like_button(context, obj):
+def like_button(context, obj, extra_classes=''):
     if not likes_enabled(obj):
         return {"likes_enabled": False}
 
     return {"is_liked_by_user": obj.is_liked_by(context['request'].user),
             "object": obj,
+            "extra_classes": extra_classes,
             "likes_enabled": True}
 
 @register.inclusion_tag('djinn_likes/includes/likes_block.html', takes_context=True)
@@ -36,6 +37,10 @@ def likes(context, obj, template=None):
         'likes_content_type': "-".join((obj._meta.app_label, obj._meta.model_name)),
     })
     return context
+
+@register.inclusion_tag('gronet_v3/djinn_likes/snippets/likes_block.html', takes_context=True)
+def likes_v3(context, obj, template=None):
+    return likes(context, obj, template=template)
 
 @register.inclusion_tag('djinn_likes/includes/likers.html', takes_context=True)
 def show_likers(context, obj):
@@ -64,3 +69,6 @@ def show_likers(context, obj):
             }
 
 
+@register.inclusion_tag('gronet_v3/djinn_likes/snippets/likers.html', takes_context=True)
+def show_likers_v3(context, obj):
+    return show_likers(context, obj)

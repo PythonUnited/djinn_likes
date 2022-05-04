@@ -1,6 +1,6 @@
 {% load djinn_core %}
 {% if likes_enabled %}
-<a class="action-inline update-like-action"
+<a class="action-inline update-like-action {{ extra_classes }}"
    target="#update-like-action-{{ object.ct_name }}-{{ object.id}}"
    data-pu_actionmethod="POST"
    href="{% url 'djinn_toggle_like' %}"
